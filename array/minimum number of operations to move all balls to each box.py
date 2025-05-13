@@ -7,14 +7,14 @@ from typing import List
 
 class Solution:
     def minOperations(self, boxes: str) -> List[int]:
-        idxes = []
         n = len(boxes)
-        for idx, box in enumerate(boxes):
-            if box == "1":
-                idxes.append(idx)
+        ans = [0]
+        ones_count = 0
+        for idx in range(n):
+            if boxes[idx] == "1":
+                ans[0] += idx
+                ones_count += 1
 
-        ans = [sum(idxes)]
-        ones_count = len(idxes)
         r = ones_count
         l = 0
         if boxes[0] == "1":
